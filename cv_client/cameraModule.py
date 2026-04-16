@@ -27,7 +27,12 @@ import threading
 import queue
 
 # Typedef
-MatLike = cv2.typing.MatLike
+# MatLike = cv2.typing.MatLike
+try:
+    MatLike = cv2.typing.MatLike
+except AttributeError:
+    import numpy
+    MatLike = numpy.ndarray
 IntArray = np.ndarray[Any, np.dtype[np.intp]]
 
 # Bufferless VideoCapture
